@@ -1,0 +1,57 @@
+{% extends 'files/base.html' %}
+{% block main_body %}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        首页信息
+        <small>{{request.session.userInfo.username}}的首页</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>{{request.session.userInfo.username}}的首页</a></li>
+        <li class="active">{{request.session.userInfo.username}}的首页</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">{{request.session.userInfo.username}}的个人信息</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>属性</th>
+                            <th>值</th>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>{{request.session.userInfo.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>{{request.session.userInfo.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>introduction</td>
+                            <td>{{request.session.userInfo.introduction}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <a role="button" href="{% url 'editInfo' %}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">编辑信息</span></a>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->
+{% endblock %}
